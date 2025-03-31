@@ -4,23 +4,23 @@ public class MouseLook : MonoBehaviour
 {
     [SerializeField] private Transform playerCam;
     [SerializeField] private Transform playerT;
-    [SerializeField] private float mouseSens;
+    [SerializeField] private float mouseSensitivity;
     private float mouseX;
     private float mouseY;
 
     private void Update()
     {
         HandleInput();
-        HandleMovement();
+        HandleMouseLooking();
     }
 
     private void HandleInput()
     {
-        mouseX += Input.GetAxis("Mouse X") * mouseSens * Time.deltaTime;
-        mouseY += Input.GetAxis("Mouse Y") * mouseSens * Time.deltaTime;
+        mouseX += Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+        mouseY += Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
     }
 
-    private void HandleMovement()
+    private void HandleMouseLooking()
     {
         mouseY = Mathf.Clamp(mouseY, -90, 90);
         playerT.rotation = Quaternion.Euler(0, mouseX, 0);
