@@ -13,6 +13,7 @@ public class RaycastInteraction : MonoBehaviour
     [SerializeField] private LayerMask interactableLayer;
     [SerializeField] private Transform playerCamera;
     [SerializeField] private PlayerMovement playerMovement;
+    [SerializeField] private MouseLook mouseLook;
 
     private bool isZooming = false;
     private Vector3 originalPosition;
@@ -21,20 +22,25 @@ public class RaycastInteraction : MonoBehaviour
 
     void Update()
     {
+        InteractRaycast();
+    }
+
+    private void InteractRaycast()
+    {
         if (!isZooming)
         {
             Ray ray = new Ray(playerCamera.position, playerCamera.forward);
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit, interactDistance, interactableLayer))
+            if (Physics.Raycast(ray, out hit, interactDistance))
             {
-                Interactable interactable = hit.collider.GetComponent<Interactable>();
+                IInteractable interactable = hit.collider.GetComponent<IInteractable>();
 
-                if (interactable != null && Input.GetKeyDown(KeyCode.E))
+                if (interactable != null && Input.GetMouseButton(0))
                 {
                     StartZoom(hit.transform);
                     playerMovement.enabled = false;
-                    interactable.Interact();
+                    mouseLook.enabled = false;
                 }
             }
         }
@@ -42,6 +48,7 @@ public class RaycastInteraction : MonoBehaviour
         {
             ResetCamera();
             playerMovement.enabled = true;
+            mouseLook.enabled = true;
         }
     }
 
@@ -54,6 +61,12 @@ public class RaycastInteraction : MonoBehaviour
 
         Vector3 zoomPosition = target.position + target.forward * -backOffset + Vector3.up * upOffset;
         StartCoroutine(ZoomTo(zoomPosition, target.rotation));
+
+        ObjectRotator rotator = target.GetComponent<ObjectRotator>();
+        if (rotator != null)
+        {
+            rotator.StartInspection();
+        }
     }
 
     private IEnumerator ZoomTo(Vector3 targetPosition, Quaternion targetRotation)
@@ -72,6 +85,18 @@ public class RaycastInteraction : MonoBehaviour
     {
         isZooming = false;
         StartCoroutine(ZoomTo(originalPosition, originalRotation));
+
+        if (targetObject != null)
+        {
+            ObjectRotator rotator = targetObject.GetComponent<ObjectRotator>();
+            if (rotator != null)
+            {
+                rotator.StopInspection();
+            }
+        }
     }
+
+
+
 }
 
