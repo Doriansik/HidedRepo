@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ObjectRotator : MonoBehaviour, IInteractable
 {
-    public static ObjectRotator Instance;
+    public static ObjectRotator Instance { get; private set; }
 
     [SerializeField] private string cubeName;
     [SerializeField] private float rotationSpeed;
@@ -42,13 +42,12 @@ public class ObjectRotator : MonoBehaviour, IInteractable
 
             transform.Rotate(Vector3.up, -mouseX, Space.World);
             transform.Rotate(Vector3.right, mouseY, Space.World);
-
         }
     }
 
     public void StartInspection()
     {
-        isBeingInspected = true; 
+        isBeingInspected = true;
         Interact();
         StopAllCoroutines();
     }
@@ -61,21 +60,17 @@ public class ObjectRotator : MonoBehaviour, IInteractable
 
     private IEnumerator GoToOriginalTransform()
     {
-        float t = 0;
+        float countdownToReturn = 0;
         Vector3 startPos = transform.position;
         Quaternion startRot = transform.rotation;
 
-        while (t < 1)
+        while (countdownToReturn < 1)
         {
-            t += Time.deltaTime * returnSpeed;
-            transform.position = Vector3.Lerp(startPos, originalPosition, t);
-            transform.rotation = Quaternion.Lerp(startRot, originalRotation, t);
+            countdownToReturn += Time.deltaTime * returnSpeed;
+            transform.position = Vector3.Lerp(startPos, originalPosition, countdownToReturn);
+            transform.rotation = Quaternion.Lerp(startRot, originalRotation, countdownToReturn);
             yield return null;
         }
-
-        
-        transform.position = originalPosition;
-        transform.rotation = originalRotation;
     }
 
     private void Interact()

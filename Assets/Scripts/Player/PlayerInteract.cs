@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class RaycastInteraction : MonoBehaviour
+public class PlayerInteract : MonoBehaviour
 {
     [Header("Variables")]
     [SerializeField] private float interactDistance;
@@ -10,8 +10,8 @@ public class RaycastInteraction : MonoBehaviour
     [SerializeField] private float backOffset;
 
     [Header("Others")]
-    [SerializeField] private LayerMask interactableLayer;
     [SerializeField] private Transform playerCamera;
+    [SerializeField] private GameObject playerVisual;
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private MouseLook mouseLook;
 
@@ -22,10 +22,10 @@ public class RaycastInteraction : MonoBehaviour
 
     void Update()
     {
-        InteractRaycast();
+        PlayerInteracts();
     }
 
-    private void InteractRaycast()
+    private void PlayerInteracts()
     {
         if (!isZooming)
         {
@@ -39,6 +39,7 @@ public class RaycastInteraction : MonoBehaviour
                 if (interactable != null && Input.GetMouseButton(0))
                 {
                     StartZoom(hit.transform);
+                    playerVisual.SetActive(false);
                     playerMovement.enabled = false;
                     mouseLook.enabled = false;
                 }
@@ -49,6 +50,7 @@ public class RaycastInteraction : MonoBehaviour
             ResetCamera();
             playerMovement.enabled = true;
             mouseLook.enabled = true;
+            playerVisual.SetActive(true);
         }
     }
 
@@ -95,8 +97,4 @@ public class RaycastInteraction : MonoBehaviour
             }
         }
     }
-
-
-
 }
-
