@@ -21,6 +21,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleMovement()
     {
-        playerT.Translate(moveX * moveSpeed * Time.deltaTime, 0, moveZ * moveSpeed * Time.deltaTime);
+        playerT.Translate(moveX * moveSpeed * Time.deltaTime, 0f, moveZ * moveSpeed * Time.deltaTime);
     }
 }

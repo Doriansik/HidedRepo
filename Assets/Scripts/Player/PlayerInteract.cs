@@ -1,100 +1,60 @@
-using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerInteract : MonoBehaviour
 {
-    [Header("Variables")]
-    [SerializeField] private float interactDistance;
-    [SerializeField] private float zoomSpeed;
-    [SerializeField] private float upOffset;
-    [SerializeField] private float backOffset;
 
-    [Header("Others")]
-    [SerializeField] private Transform playerCamera;
-    [SerializeField] private GameObject playerVisual;
-    [SerializeField] private PlayerMovement playerMovement;
-    [SerializeField] private MouseLook mouseLook;
+    [SerializeField] private ZoomingManager zoomingManager;
 
-    private bool isZooming = false;
-    private Vector3 originalPosition;
-    private Quaternion originalRotation;
-    private Transform targetObject;
-
-    void Update()
+    private void Update()
     {
-        PlayerInteracts();
+        {
+            if (Input.GetMouseButton(0))
+            {
+                IInteractable interactable = GetInteractableObject();
+                if (interactable != null)
+                {
+                    interactable.Interact(transform);
+                    zoomingManager.StartZoom(interactable.GetTransform());
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                zoomingManager.ResetCamera();
+            }
+        }  
     }
 
-    private void PlayerInteracts()
+
+    public IInteractable GetInteractableObject()
     {
-        if (!isZooming)
+        List<IInteractable> interactableList = new List<IInteractable>();
+        float interactRange = 1.5f;
+        Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactRange);
+        foreach (Collider collider in colliderArray)
         {
-            Ray ray = new Ray(playerCamera.position, playerCamera.forward);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit, interactDistance))
+            if (collider.TryGetComponent(out IInteractable interactable))
             {
-                IInteractable interactable = hit.collider.GetComponent<IInteractable>();
+                interactableList.Add(interactable);
+            }
+        }
 
-                if (interactable != null && Input.GetMouseButton(0))
+        IInteractable closestInteractable = null;
+        foreach (IInteractable interactable in interactableList)
+        {
+            if (closestInteractable == null)
+            {
+                closestInteractable = interactable;
+            }
+            else
+            {
+                if (Vector3.Distance(transform.position, interactable.GetTransform().position) < Vector3.Distance(transform.position, closestInteractable.GetTransform().position))
                 {
-                    StartZoom(hit.transform);
-                    playerVisual.SetActive(false);
-                    playerMovement.enabled = false;
-                    mouseLook.enabled = false;
+                    closestInteractable = interactable;
                 }
             }
         }
-        else if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            ResetCamera();
-            playerMovement.enabled = true;
-            mouseLook.enabled = true;
-            playerVisual.SetActive(true);
-        }
-    }
-
-    private void StartZoom(Transform target)
-    {
-        isZooming = true;
-        targetObject = target;
-        originalPosition = playerCamera.position;
-        originalRotation = playerCamera.rotation;
-
-        Vector3 zoomPosition = target.position + target.forward * -backOffset + Vector3.up * upOffset;
-        StartCoroutine(ZoomTo(zoomPosition, target.rotation));
-
-        ObjectRotator rotator = target.GetComponent<ObjectRotator>();
-        if (rotator != null)
-        {
-            rotator.StartInspection();
-        }
-    }
-
-    private IEnumerator ZoomTo(Vector3 targetPosition, Quaternion targetRotation)
-    {
-        float countdownToZoom = 0;
-        while (countdownToZoom < 1)
-        {
-            countdownToZoom += Time.deltaTime * zoomSpeed;
-            playerCamera.position = Vector3.Lerp(originalPosition, targetPosition, countdownToZoom);
-            playerCamera.rotation = Quaternion.Lerp(originalRotation, targetRotation, countdownToZoom);
-            yield return null;
-        }
-    }
-
-    private void ResetCamera()
-    {
-        isZooming = false;
-        StartCoroutine(ZoomTo(originalPosition, originalRotation));
-
-        if (targetObject != null)
-        {
-            ObjectRotator rotator = targetObject.GetComponent<ObjectRotator>();
-            if (rotator != null)
-            {
-                rotator.StopInspection();
-            }
-        }
+        return closestInteractable;
     }
 }

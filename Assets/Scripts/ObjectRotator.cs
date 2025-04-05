@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class ObjectRotator : MonoBehaviour, IInteractable
+public class ObjectRotator : MonoBehaviour
 {
     public static ObjectRotator Instance { get; private set; }
 
@@ -48,7 +48,6 @@ public class ObjectRotator : MonoBehaviour, IInteractable
     public void StartInspection()
     {
         isBeingInspected = true;
-        Interact();
         StopAllCoroutines();
     }
 
@@ -71,10 +70,5 @@ public class ObjectRotator : MonoBehaviour, IInteractable
             transform.rotation = Quaternion.Lerp(startRot, originalRotation, countdownToReturn);
             yield return null;
         }
-    }
-
-    private void Interact()
-    {
-        Debug.Log(cubeName);
     }
 }
