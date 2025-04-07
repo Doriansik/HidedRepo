@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem.iOS;
 
 public class SimonGameManager : MonoBehaviour
 {
@@ -22,7 +23,7 @@ public class SimonGameManager : MonoBehaviour
         Instance = this;
     }
 
-    public void InitializeGame()
+    public void StartSimonSaysGame()
     {
         CrosshairManager.Instance.HideCrosshair();
         SimonGameUIManager.Instance.ShowGameplayPanel();
@@ -40,7 +41,8 @@ public class SimonGameManager : MonoBehaviour
 
     private IEnumerator GameLoop()
     {
-        yield return new WaitForSeconds(2f);
+        float timeToStartGame = 1.5f;
+        yield return new WaitForSeconds(timeToStartGame);
         int round = 5;
         int roundAmount = 0;
         for (int i = 0; i < round; i++)
@@ -74,7 +76,7 @@ public class SimonGameManager : MonoBehaviour
 
     public void ResetGame()
     {
-        InitializeGame();
+        StartSimonSaysGame();
     }
 
     public void ExitSimonSays()

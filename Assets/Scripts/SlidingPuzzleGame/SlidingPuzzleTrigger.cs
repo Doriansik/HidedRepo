@@ -1,12 +1,12 @@
 using UnityEngine;
 
-public class SimonTrigger : MonoBehaviour
+public class SlidingPuzzleTrigger : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            SimonGameManager.Instance.StartSimonSaysGame();
+            SlidingPuzzleGameManager.Instance.StartPuzzlingSlideGame();
         }
     }
 }
