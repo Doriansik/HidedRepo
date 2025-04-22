@@ -6,7 +6,7 @@ public class SlidingPuzzleTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            SlidingPuzzleGameManager.Instance.StartPuzzlingSlideGame();
+            SlidingPuzzleGameManager.Instance.ChangeCameraToPuzzle();
         }
     }
 }

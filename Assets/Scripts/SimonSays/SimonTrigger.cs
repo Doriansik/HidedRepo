@@ -6,6 +6,7 @@ public class SimonTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            Debug.Log("dsdas");
             SimonGameManager.Instance.StartSimonSaysGame();
         }
     }

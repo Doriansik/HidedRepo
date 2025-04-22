@@ -7,15 +7,16 @@ public class SlidingPuzzleGameManager : MonoBehaviour
 {
     public static SlidingPuzzleGameManager Instance;
 
+    [SerializeField] private PlayerMovement playerMovement;
+    [SerializeField] private MouseLook mouseLook;
     [SerializeField] private Transform gameTransform;
     [SerializeField] private Transform piecePrefab;
-    [SerializeField] private CameraManager cameraManager;
     [SerializeField] private Camera puzzleCamera;
 
     private List<Transform> pieces;
     private int emptyLocation;
     private int size;
-    private bool shuffling = false;
+    private bool isShuffling = false;
     private bool gameStarted = false;
 
     private void Awake()
@@ -23,15 +24,14 @@ public class SlidingPuzzleGameManager : MonoBehaviour
         Instance = this;
     }
 
-    
 
     void Update()
     {
         if (pieces == null || pieces.Count == 0) return;
 
-        if (!shuffling && CheckCompletion())
+        if (!isShuffling && CheckCompletion())
         {
-            shuffling = true;
+            isShuffling = true;
             StartCoroutine(WaitShuffle(0.5f));
         }
 
@@ -55,20 +55,36 @@ public class SlidingPuzzleGameManager : MonoBehaviour
         }
     }
 
-    public void StartPuzzlingSlideGame()
+    public void ChangeCameraToPuzzle()
     {
+        CameraManager.Instance.CameraManage(1);
+        StartPuzzlingSlideGame();
+    }
+
+    private void ChangeCameraToGameplay()
+    {
+        CameraManager.Instance.CameraManage(0);
+    }
+
+    private void StartPuzzlingSlideGame()
+    {
+        playerMovement.enabled = false;
+        mouseLook.enabled = false;
+
         if (gameStarted) return;
-
-        gameStarted = true;
-
-        if (cameraManager != null)
-        {
-            cameraManager.CameraManage();
-        }
 
         pieces = new List<Transform>();
         size = 2;
         CreateGamePieces(0.01f);
+
+        Shuffle();
+
+        do
+        {
+            Shuffle();
+        }
+        while (CheckCompletion());
+        gameStarted = true;
     }
 
     private void CreateGamePieces(float gapThickness)
@@ -130,11 +146,10 @@ public class SlidingPuzzleGameManager : MonoBehaviour
             }
         }
 
+        ChangeCameraToGameplay();
 
-            if (cameraManager != null)
-            {
-                cameraManager.CameraManage();
-            }
+        playerMovement.enabled = true;
+        mouseLook.enabled = true;
 
         return true;
     }
@@ -143,7 +158,7 @@ public class SlidingPuzzleGameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(duration);
         Shuffle();
-        shuffling = false;
+        isShuffling = false;
     }
 
     private void Shuffle()
@@ -173,4 +188,5 @@ public class SlidingPuzzleGameManager : MonoBehaviour
             }
         }
     }
+
 }

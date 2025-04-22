@@ -1,37 +1,37 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraManager : MonoBehaviour
 {
-    [SerializeField] private Camera playerCamera;
-    [SerializeField] private Camera puzzleCamera;
-    private int manager;
+    public static CameraManager Instance;
 
+    [SerializeField] private List<Camera> cameras = new List<Camera>();
+    private int currentCameraIndex;
 
-
-    public void CameraManage()
+    private void Awake()
     {
-        if(manager == 0)
+        Instance = this;
+    }
+
+    public void CameraManage(int index)
+    {
+        if (index < 0 || index >= cameras.Count)
         {
-            SwitchToGameplayCamera();
-            manager = 1;
+            return;
         }
-        else
+
+        currentCameraIndex = index;
+        ActivateCamera(currentCameraIndex);
+        Debug.Log(currentCameraIndex);
+    }
+
+    private void ActivateCamera(int indexToActivate)
+    {
+        for (int i = 0; i < cameras.Count; i++)
         {
-            SwitchToPuzzleCamera();
-            manager = 0;
+            cameras[i].gameObject.SetActive(i == indexToActivate);
         }
     }
 
 
-    private void SwitchToPuzzleCamera()
-    {
-        playerCamera.gameObject.SetActive(false);
-        puzzleCamera.gameObject.SetActive(true);
-    }
-
-    private void SwitchToGameplayCamera()
-    {
-        puzzleCamera.gameObject.SetActive(false);
-        playerCamera.gameObject.SetActive(true);
-    }
 }
