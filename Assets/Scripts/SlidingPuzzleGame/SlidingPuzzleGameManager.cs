@@ -9,6 +9,7 @@ public class SlidingPuzzleGameManager : MonoBehaviour
 
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private MouseLook mouseLook;
+    [SerializeField] private BlockCursor blockCursor;
     [SerializeField] private Transform gameTransform;
     [SerializeField] private Transform piecePrefab;
     [SerializeField] private Camera puzzleCamera;
@@ -70,6 +71,7 @@ public class SlidingPuzzleGameManager : MonoBehaviour
     {
         playerMovement.enabled = false;
         mouseLook.enabled = false;
+        blockCursor.ShowCursor();
 
         if (gameStarted) return;
 
@@ -150,6 +152,7 @@ public class SlidingPuzzleGameManager : MonoBehaviour
 
         playerMovement.enabled = true;
         mouseLook.enabled = true;
+        blockCursor.HideCursor();
 
         return true;
     }

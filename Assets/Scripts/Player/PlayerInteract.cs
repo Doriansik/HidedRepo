@@ -5,25 +5,30 @@ public class PlayerInteract : MonoBehaviour
 {
 
     [SerializeField] private ZoomingManager zoomingManager;
+    [SerializeField] private BlockCursor blockCursor;
+
+    private bool isInspecting = false;
 
     private void Update()
     {
+        if (Input.GetMouseButton(0))
         {
-            if (Input.GetMouseButton(0))
+            IInteractable interactable = GetInteractableObject();
+            if (interactable != null)
             {
-                IInteractable interactable = GetInteractableObject();
-                if (interactable != null)
-                {
-                    interactable.Interact(transform);
-                    zoomingManager.StartZoom(interactable.GetTransform());
-                }
+                interactable.Interact(transform);
+                zoomingManager.StartZoom(interactable.GetTransform());
+                isInspecting = true;
+                blockCursor.ShowCursor();
             }
+        }
 
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                zoomingManager.ResetCamera();
-            }
-        }  
+        if (Input.GetKeyDown(KeyCode.Escape) && isInspecting)
+        {
+            blockCursor.HideCursor();
+            isInspecting = false;
+            zoomingManager.ResetCamera();
+        }
     }
 
 

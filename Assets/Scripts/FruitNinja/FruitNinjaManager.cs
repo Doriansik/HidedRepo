@@ -10,6 +10,7 @@ public class FruitNinjaManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private GameObject fruitNinjaManagers;
     [SerializeField] private PlayerMovement playerMovement;
+    [SerializeField] private BlockCursor blockCursor;
     [SerializeField] private MouseLook mouseLook;
 
 
@@ -37,6 +38,7 @@ public class FruitNinjaManager : MonoBehaviour
         
         playerMovement.enabled = false;
         mouseLook.enabled = false;
+        blockCursor.ShowCursor();
         blade.enabled = true;
         spawner.enabled = true;
 
@@ -118,6 +120,9 @@ public class FruitNinjaManager : MonoBehaviour
         {
             playerMovement.enabled = true;
             mouseLook.enabled = true;
+            blockCursor.HideCursor();
+            score = 0;
+            scoreText.text = score.ToString();
             CameraManager.Instance.CameraManage(0);
             fruitNinjaManagers.SetActive(false);
         }

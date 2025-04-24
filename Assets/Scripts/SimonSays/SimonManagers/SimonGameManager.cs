@@ -9,6 +9,7 @@ public class SimonGameManager : MonoBehaviour
 
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private MouseLook mouseLook;
+    [SerializeField] private BlockCursor blockCursor;
 
     private ISequenceProvider sequenceProvider;
     private Coroutine gameLoopCoroutine;
@@ -27,6 +28,7 @@ public class SimonGameManager : MonoBehaviour
     {
         CrosshairManager.Instance.HideCrosshair();
         SimonGameUIManager.Instance.ShowGameplayPanel();
+        blockCursor.ShowCursor();
 
         if (gameLoopCoroutine != null)
             StopCoroutine(gameLoopCoroutine);
@@ -41,7 +43,7 @@ public class SimonGameManager : MonoBehaviour
 
     private IEnumerator GameLoop()
     {
-        float timeToStartGame = 1.5f;
+        float timeToStartGame = 0.5f;
         yield return new WaitForSeconds(timeToStartGame);
         int round = 5;
         int roundAmount = 0;
@@ -65,7 +67,8 @@ public class SimonGameManager : MonoBehaviour
                 yield break;
             }
 
-            yield return new WaitForSeconds(.75f);
+            float delayBetweenRounds = 0.3f;
+            yield return new WaitForSeconds(delayBetweenRounds);
         }
 
         if (SimonGameUIManager.Instance != null)
@@ -83,6 +86,7 @@ public class SimonGameManager : MonoBehaviour
     {
         playerMovement.enabled = true;
         mouseLook.enabled = true;
+        blockCursor.HideCursor();
         SimonGameUIManager.Instance.HideEndPanel();
         SimonGameUIManager.Instance.HideGameplayPanel();
         SimonGameUIManager.Instance.HideWinPanel();

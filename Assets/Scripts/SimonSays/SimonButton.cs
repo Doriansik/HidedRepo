@@ -36,8 +36,9 @@ public class SimonButton : MonoBehaviour
     {
         if (tmpText != null)
         {
+            float flashDuration = 0.75f;
             tmpText.color = Color.white;
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(flashDuration);
             tmpText.color = originalColor;
         }
     }

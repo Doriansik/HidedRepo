@@ -22,7 +22,6 @@ public class CameraManager : MonoBehaviour
 
         currentCameraIndex = index;
         ActivateCamera(currentCameraIndex);
-        Debug.Log(currentCameraIndex);
     }
 
     private void ActivateCamera(int indexToActivate)

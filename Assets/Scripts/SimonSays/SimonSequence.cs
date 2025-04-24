@@ -14,6 +14,8 @@ public class SimonSequence : ISequenceProvider
 
     public IEnumerator PlaySequence()
     {
+        float delayBetweenFlashes = 1f;
+
         foreach (var color in sequence)
         {
             SimonButton button = SimonButtonManager.Instance.GetButton(color);
@@ -21,9 +23,10 @@ public class SimonSequence : ISequenceProvider
             {
                 button.Flash();
             }
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(delayBetweenFlashes);
         }
     }
+
 
     public List<SimonColor> GetSequence()
     {
