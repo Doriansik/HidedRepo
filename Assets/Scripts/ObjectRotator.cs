@@ -5,6 +5,7 @@ public class ObjectRotator : MonoBehaviour
 {
     public static ObjectRotator Instance { get; private set; }
 
+    [SerializeField] private BlockCursor blockCursor;
     [SerializeField] private string cubeName;
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float returnSpeed;
@@ -48,12 +49,14 @@ public class ObjectRotator : MonoBehaviour
     public void StartInspection()
     {
         isBeingInspected = true;
+        blockCursor.ShowCursor();
         StopAllCoroutines();
     }
 
     public void StopInspection()
     {
         isBeingInspected = false;
+        blockCursor.HideCursor();
         StartCoroutine(GoToOriginalTransform());
     }
 

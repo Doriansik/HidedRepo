@@ -3,6 +3,7 @@ using UnityEngine;
 public class ExitDoor : MonoBehaviour
 {
     [SerializeField] private GameObject insertCodePanel;
+    [SerializeField] private BlockCursor blockCursor;
 
 
     private void OnTriggerEnter(Collider other)
@@ -10,6 +11,7 @@ public class ExitDoor : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             insertCodePanel.SetActive(true);
+            blockCursor.ShowCursor();
         }
     }
 
@@ -18,6 +20,7 @@ public class ExitDoor : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             insertCodePanel.SetActive(false);
+            blockCursor.HideCursor();
         }
     }
 }

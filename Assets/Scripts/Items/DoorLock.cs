@@ -3,6 +3,7 @@ using TMPro;
 
 public class DoorLock : MonoBehaviour
 {
+    [SerializeField] private BlockCursor blockCursor;
     [SerializeField] private GameObject exitDoor;
     [SerializeField] private GameObject insertCodePanel;
     [SerializeField] private string correctCode;
@@ -15,6 +16,7 @@ public class DoorLock : MonoBehaviour
         {
             messageText.text = "Valid Code!";
             exitDoor.SetActive(false);
+            blockCursor.HideCursor();
             Destroy(insertCodePanel);
         }
         else

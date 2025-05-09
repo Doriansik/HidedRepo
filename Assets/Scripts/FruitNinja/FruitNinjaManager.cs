@@ -8,6 +8,7 @@ public class FruitNinjaManager : MonoBehaviour
     public static FruitNinjaManager Instance;
 
     [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private GameObject scoreTextObject;
     [SerializeField] private GameObject fruitNinjaManagers;
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private BlockCursor blockCursor;
@@ -36,6 +37,7 @@ public class FruitNinjaManager : MonoBehaviour
     {
         CameraManager.Instance.CameraManage(2);
         
+        scoreTextObject.SetActive(true);
         playerMovement.enabled = false;
         mouseLook.enabled = false;
         blockCursor.ShowCursor();
@@ -123,6 +125,7 @@ public class FruitNinjaManager : MonoBehaviour
             blockCursor.HideCursor();
             score = 0;
             scoreText.text = score.ToString();
+            scoreTextObject.SetActive(false);
             CameraManager.Instance.CameraManage(0);
             fruitNinjaManagers.SetActive(false);
         }

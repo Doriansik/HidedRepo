@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class Fruit : MonoBehaviour
 {
-    public GameObject whole;
-    public GameObject sliced;
+    [SerializeField] private GameObject whole;
+    [SerializeField] private GameObject sliced;
+    [SerializeField] private int points = 1;
 
     private Rigidbody fruitRigidbody;
     private Collider fruitCollider;
     private ParticleSystem juiceParticleEffect;
 
-    public int points = 1;
 
     private void Awake()
     {

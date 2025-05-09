@@ -16,8 +16,8 @@ public class MouseLook : MonoBehaviour
 
     private void HandleInput()
     {
-        mouseX += Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        mouseY += Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        mouseX += Input.GetAxis("Mouse X") * mouseSensitivity;
+        mouseY += Input.GetAxis("Mouse Y") * mouseSensitivity;
     }
 
     private void HandleMouseLooking()

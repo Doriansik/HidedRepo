@@ -1673,7 +1673,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCam: {fileID: 330585546}
   playerT: {fileID: 1013930563}
-  mouseSensitivity: 690
+  mouseSensitivity: 3
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -3497,7 +3497,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &963056036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3628,8 +3628,8 @@ GameObject:
   - component: {fileID: 967256264}
   - component: {fileID: 967256263}
   - component: {fileID: 967256262}
-  - component: {fileID: 967256266}
   - component: {fileID: 967256267}
+  - component: {fileID: 967256266}
   m_Layer: 0
   m_Name: Wardrobe
   m_TagString: Untagged
@@ -3875,6 +3875,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 963056036}
+  scoreTextObject: {fileID: 963056035}
   fruitNinjaManagers: {fileID: 21410058}
   playerMovement: {fileID: 1013930564}
   blockCursor: {fileID: 911081635}
@@ -4265,6 +4266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   insertCodePanel: {fileID: 1749209635}
+  blockCursor: {fileID: 911081635}
 --- !u!65 &1061172306
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7699,6 +7701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a906c6b95f0ee945bb136fb8688ad83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockCursor: {fileID: 911081635}
   exitDoor: {fileID: 1061172303}
   insertCodePanel: {fileID: 250144604}
   correctCode: 1234
@@ -7967,6 +7970,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 393e61f8821f88c44a73a7e005f6790b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockCursor: {fileID: 911081635}
   cubeName: Lamp
   rotationSpeed: 3
   returnSpeed: 2
