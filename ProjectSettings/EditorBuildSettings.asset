@@ -6,7 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Room 1.unity
+    path: Assets/Scenes/MainMenu.unity
+    guid: 577d2dae9015d13448bfcb66c472bee9
+  - enabled: 1
+    path: Assets/Scenes/CreditsMenu.unity
+    guid: 24c012ecc6b0ff54b8e6b812b63c6fce
+  - enabled: 1
+    path: Assets/Scenes/RoomOne.unity
     guid: 99c9720ab356a0642a771bea13969a05
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

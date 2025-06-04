@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using TMPro;
@@ -7,16 +6,21 @@ public class FruitNinjaManager : MonoBehaviour
 {
     public static FruitNinjaManager Instance;
 
+    [Header("UI & Managers")]
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private GameObject scoreTextObject;
     [SerializeField] private GameObject fruitNinjaManagers;
+
+    [Header("Player")]
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private BlockCursor blockCursor;
     [SerializeField] private MouseLook mouseLook;
 
-
-    private FruitNinjaBlade blade;
-    private FruitNinjaSpawner spawner;
+    [Header("Gameplay")]
+    [SerializeField] private FruitNinjaBlade blade;
+    [SerializeField] private FruitNinjaSpawner spawner;
+    [SerializeField] private Fruit[] fruitPool;
+    [SerializeField] private Bomb[] bombPool;
 
     private int score = 0;
 
@@ -24,8 +28,6 @@ public class FruitNinjaManager : MonoBehaviour
     {
         Instance = this;
 
-        blade = FindFirstObjectByType<FruitNinjaBlade>();
-        spawner = FindFirstObjectByType<FruitNinjaSpawner>();
     }
 
     private void Update()
@@ -36,7 +38,7 @@ public class FruitNinjaManager : MonoBehaviour
     public void NewGame()
     {
         CameraManager.Instance.CameraManage(2);
-        
+
         scoreTextObject.SetActive(true);
         playerMovement.enabled = false;
         mouseLook.enabled = false;
@@ -50,21 +52,18 @@ public class FruitNinjaManager : MonoBehaviour
         ClearScene();
     }
 
-
     private void ClearScene()
     {
-        Fruit[] fruits = FindObjectsOfType<Fruit>(false);
-
-        foreach (Fruit fruit in fruits)
+        foreach (Fruit fruit in fruitPool)
         {
-            Destroy(fruit.gameObject);
+            if (fruit != null && fruit.gameObject.activeInHierarchy)
+                Destroy(fruit.gameObject);
         }
 
-        Bomb[] bombs = FindObjectsOfType<Bomb>(false);
-
-        foreach (Bomb bomb in bombs)
+        foreach (Bomb bomb in bombPool)
         {
-            Destroy(bomb.gameObject);
+            if (bomb != null && bomb.gameObject.activeInHierarchy)
+                Destroy(bomb.gameObject);
         }
     }
 
@@ -84,41 +83,13 @@ public class FruitNinjaManager : MonoBehaviour
 
     private IEnumerator ExplodeSequence()
     {
-        //float elapsed = 0f;
-        //float duration = 0.5f;
-        
-        //while (elapsed < duration)
-        //{
-        //    float t = Mathf.Clamp01(elapsed / duration);
-        //    //fadeImage.color = Color.Lerp(Color.clear, Color.white, t);
-
-
-        //    Time.timeScale = 1f - t;
-        //    elapsed += Time.unscaledDeltaTime;
-
-        //    yield return null;
-        //}
-        
         yield return new WaitForSecondsRealtime(1f);
-
         NewGame();
-
-        //elapsed = 0f;
-
-        //while (elapsed < duration)
-        //{
-        //    float t = Mathf.Clamp01(elapsed / duration);
-        //    fadeImage.color = Color.Lerp(Color.white, Color.clear, t);
-
-        //    elapsed += Time.unscaledDeltaTime;
-
-        //    yield return null;
-        //}
     }
 
     private void CompleteGame()
     {
-        if(score >= 30)
+        if (score >= 30)
         {
             playerMovement.enabled = true;
             mouseLook.enabled = true;

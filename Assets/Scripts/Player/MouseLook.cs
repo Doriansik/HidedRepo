@@ -4,7 +4,9 @@ public class MouseLook : MonoBehaviour
 {
     [SerializeField] private Transform playerCam;
     [SerializeField] private Transform playerT;
-    [SerializeField] private float mouseSensitivity;
+    [SerializeField] private float mouseSensitivityX;
+    
+
     private float mouseX;
     private float mouseY;
 
@@ -16,8 +18,8 @@ public class MouseLook : MonoBehaviour
 
     private void HandleInput()
     {
-        mouseX += Input.GetAxis("Mouse X") * mouseSensitivity;
-        mouseY += Input.GetAxis("Mouse Y") * mouseSensitivity;
+        mouseX += Input.GetAxis("Mouse X") * mouseSensitivityX;
+        mouseY += Input.GetAxis("Mouse Y") * mouseSensitivityX;
     }
 
     private void HandleMouseLooking()
