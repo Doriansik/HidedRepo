@@ -30,8 +30,16 @@ public class ZoomingManager : MonoBehaviour
         originalPosition = playerCamera.position;
         originalRotation = playerCamera.rotation;
 
-        Vector3 zoomPosition = target.position + target.forward * -backOffset + Vector3.up * upOffset;
-        StartCoroutine(ZoomTo(zoomPosition, target.rotation));
+        Vector3 directionToTarget = (target.position - playerCamera.position).normalized;
+        Vector3 zoomPosition = target.position - directionToTarget * backOffset + Vector3.up * upOffset;
+
+        Ray ray = new Ray(target.position, -directionToTarget);
+        if (Physics.Raycast(ray, out RaycastHit hit, backOffset))
+        {
+            zoomPosition = hit.point + directionToTarget * 0.1f;
+        }
+
+        StartCoroutine(ZoomTo(zoomPosition, Quaternion.LookRotation(directionToTarget)));
 
         ObjectRotator rotator = target.GetComponent<ObjectRotator>();
         if (rotator != null)
