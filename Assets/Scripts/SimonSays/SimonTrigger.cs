@@ -2,11 +2,9 @@ using UnityEngine;
 
 public class SimonTrigger : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    private void OnMouseDown()
     {
-        if (other.CompareTag("Player"))
-        {
-            SimonGameManager.Instance.StartSimonSaysGame();
-        }
+        SimonGameManager.Instance.StartSimonSaysGame();
+        Debug.Log("SimosSays");
     }
 }

@@ -4,13 +4,10 @@ public class FruitNinjaTrigger : MonoBehaviour
 {
     [SerializeField] private GameObject fruitNinjaManagers;
 
-
-    private void OnTriggerEnter(Collider other)
+    private void OnMouseDown()
     {
-        if (other.CompareTag("Player"))
-        {
-            fruitNinjaManagers.SetActive(true);
-            FruitNinjaManager.Instance.NewGame();
-        }
+        fruitNinjaManagers.SetActive(true);
+        FruitNinjaManager.Instance.NewGame();
+        Debug.Log("FruitNinja");
     }
 }

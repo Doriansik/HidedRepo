@@ -2,11 +2,9 @@ using UnityEngine;
 
 public class SlidingPuzzleTrigger : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    private void OnMouseDown()
     {
-        if (other.CompareTag("Player"))
-        {
-            SlidingPuzzleGameManager.Instance.ChangeCameraToPuzzle();
-        }
+        SlidingPuzzleGameManager.Instance.ChangeCameraToPuzzle();
+        Debug.Log("SlidingPuzzle");
     }
 }
