@@ -22,7 +22,10 @@ public class FruitNinjaManager : MonoBehaviour
     [SerializeField] private Fruit[] fruitPool;
     [SerializeField] private Bomb[] bombPool;
 
+    [SerializeField] private GameObject codeTextFruitNinja;
+
     private int score = 0;
+    private int pointsToWin = 30;
 
     private void Awake()
     {
@@ -84,12 +87,13 @@ public class FruitNinjaManager : MonoBehaviour
     private IEnumerator ExplodeSequence()
     {
         yield return new WaitForSecondsRealtime(1f);
+        ClearScene();
         NewGame();
     }
 
     private void CompleteGame()
     {
-        if (score >= 30)
+        if (score >= pointsToWin)
         {
             playerMovement.enabled = true;
             mouseLook.enabled = true;
@@ -99,6 +103,7 @@ public class FruitNinjaManager : MonoBehaviour
             scoreTextObject.SetActive(false);
             CameraManager.Instance.CameraManage(0);
             fruitNinjaManagers.SetActive(false);
+            codeTextFruitNinja.SetActive(true);
         }
     }
 }

@@ -9,6 +9,7 @@ public class DoorLock : MonoBehaviour
     [SerializeField] private string correctCode;
     [SerializeField] private TMP_InputField inputField;
     [SerializeField] private TMP_Text messageText;
+    [SerializeField] private GameObject codeTextKey;
 
     public void OnCheckCode()
     {
@@ -17,6 +18,7 @@ public class DoorLock : MonoBehaviour
             messageText.text = "Valid Code!";
             exitDoor.SetActive(false);
             blockCursor.HideCursor();
+            codeTextKey.SetActive(true);
             Destroy(insertCodePanel);
         }
         else

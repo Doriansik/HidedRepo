@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -13,6 +14,7 @@ public class SlidingPuzzleGameManager : MonoBehaviour
     [SerializeField] private Transform gameTransform;
     [SerializeField] private Transform piecePrefab;
     [SerializeField] private Camera puzzleCamera;
+    [SerializeField] private GameObject codeTextSlidingPuzzle;
 
     private List<Transform> pieces;
     private int emptyLocation;
@@ -153,6 +155,7 @@ public class SlidingPuzzleGameManager : MonoBehaviour
         playerMovement.enabled = true;
         mouseLook.enabled = true;
         blockCursor.HideCursor();
+        codeTextSlidingPuzzle.SetActive(true);
 
         return true;
     }

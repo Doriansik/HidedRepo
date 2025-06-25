@@ -10,6 +10,11 @@ public class MenuManager : MonoBehaviour
         Instance = this;
     }
 
+    public void GoToMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
     public void StartGame()
     {
         SceneManager.LoadScene("RoomOne");
@@ -23,6 +28,5 @@ public class MenuManager : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
-        Debug.Log("das");
     }
 }

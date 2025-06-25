@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.InputSystem.iOS;
 
 public class SimonGameManager : MonoBehaviour
 {
@@ -10,6 +9,7 @@ public class SimonGameManager : MonoBehaviour
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private MouseLook mouseLook;
     [SerializeField] private BlockCursor blockCursor;
+    [SerializeField] private GameObject codeTextSimon;
 
     private ISequenceProvider sequenceProvider;
     private Coroutine gameLoopCoroutine;
@@ -72,10 +72,12 @@ public class SimonGameManager : MonoBehaviour
         }
 
         if (SimonGameUIManager.Instance != null)
+        {
             SimonGameUIManager.Instance.ShowWinPanel();
+            codeTextSimon.SetActive(true);
+        }
+
     }
-
-
 
     public void ResetGame()
     {

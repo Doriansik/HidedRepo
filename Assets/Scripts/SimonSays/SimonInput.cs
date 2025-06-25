@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class SimonInput : IInputHandler
 {
@@ -33,6 +34,7 @@ public class SimonInput : IInputHandler
 
     public bool IsCorrect()
     {
+
         if (playerInput.Count != sequence.Count)
             return false;
 

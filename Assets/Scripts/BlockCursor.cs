@@ -8,14 +8,25 @@ public class BlockCursor : MonoBehaviour
         HideCursor();
     }
 
-
     public void ShowCursor()
     {
         Cursor.visible = true;
+        ConfinedCursor();
     }
 
     public void HideCursor()
     {
         Cursor.visible = false;
+        LockCursor();
+    }
+
+    private void ConfinedCursor()
+    {
+        Cursor.lockState = CursorLockMode.Confined;
+    }
+
+    private void LockCursor()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }
