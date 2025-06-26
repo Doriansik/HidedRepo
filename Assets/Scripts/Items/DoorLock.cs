@@ -17,7 +17,7 @@ public class DoorLock : MonoBehaviour
         {
             messageText.text = "Valid Code!";
             exitDoor.SetActive(false);
-            blockCursor.HideCursor();
+            blockCursor.ShowCursor();
             codeTextKey.SetActive(true);
             Destroy(insertCodePanel);
         }
