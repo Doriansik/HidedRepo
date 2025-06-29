@@ -1,5 +1,7 @@
 using System.Collections;
+using FMOD.Studio;
 using UnityEngine;
+
 
 public class ZoomingManager : MonoBehaviour
 {
@@ -20,7 +22,12 @@ public class ZoomingManager : MonoBehaviour
     private Vector3 originalPosition;
     private Quaternion originalRotation;
     private Transform targetObject;
+    private EventInstance playerFootsteps;
 
+    private void Start()
+    {
+        playerFootsteps = AudioManager.instance.CreateInstance(FMODEvents.instance.PlayerFootsteps);
+    }
     public void StartZoom(Transform target)
     {
         if (isZooming) return;
@@ -49,6 +56,7 @@ public class ZoomingManager : MonoBehaviour
 
         playerVisual.SetActive(false);
         playerMovement.enabled = false;
+        StopFootsteps();
         mouseLook.enabled = false;
     }
 
@@ -81,5 +89,18 @@ public class ZoomingManager : MonoBehaviour
         playerVisual.SetActive(true);
         playerMovement.enabled = true;
         mouseLook.enabled = true;
+    }
+    public void StartFootsteps()
+    {
+        PLAYBACK_STATE playbackState;
+        playerFootsteps.getPlaybackState(out playbackState);
+        if (playbackState.Equals(PLAYBACK_STATE.STOPPED))
+        {
+            playerFootsteps.start();
+        }
+    }
+    public void StopFootsteps()
+    {
+        playerFootsteps.stop(STOP_MODE.ALLOWFADEOUT);
     }
 }
