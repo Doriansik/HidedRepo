@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{12b3e0f6-31fa-4a3a-abc4-3f76dbd8da8c}">
+		<property name="assetPath">
+			<value>footsteps/459985__florianreichelt__footsteps-on-hollow-wood - Trimmed - Trimmed.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.34999999999999998</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{9de6ff95-09a4-4e34-a730-57ed68aa20b7}</destination>
+		</relationship>
+	</object>
+</objects>

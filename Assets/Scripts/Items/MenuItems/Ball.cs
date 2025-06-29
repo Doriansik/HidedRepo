@@ -1,9 +1,10 @@
 using UnityEngine;
+using FMODUnity;
 
 public class Ball : MonoBehaviour
 {
     [SerializeField] private float scale = 1.3f;
-
+    [SerializeField] private EventReference clickSound; 
     private void OnMouseEnter()
     {
         transform.localScale = new Vector3(scale, scale, scale);
@@ -15,6 +16,7 @@ public class Ball : MonoBehaviour
     }
     private void OnMouseDown()
     {
+        AudioManager.instance.PlayOneShot(clickSound, this.transform.position);
         MenuManager.Instance.StartGame();
     }
 }

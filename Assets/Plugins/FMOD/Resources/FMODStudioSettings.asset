@@ -362,16 +362,16 @@ MonoBehaviour:
     HasValue: 0
   displaySortOrder: 0
   childIdentifiers:
-  - fd7c55dab0fce234b8c25f6ffca523c1
-  - de700ef3f37a49b58a57ae3addf01ad9
-  - c88d16e5272a4e241b0ef0ac2e53b73d
-  - b7716510a1f36934c87976f3a81dbf3d
-  - 2c5177b11d81d824dbb064f9ac8527da
-  - 52eb9df5db46521439908db3a29a1bbb
-  - e7a046c753c3c3d4aacc91f6597f310d
-  - 2fea114e74ecf3c4f920e1d5cc1c4c40
-  - 46fbfdf3fc43db0458918377fd40293e
   - 0f8eb3f400726694eb47beb1a9f94ce8
+  - 46fbfdf3fc43db0458918377fd40293e
+  - 2fea114e74ecf3c4f920e1d5cc1c4c40
+  - e7a046c753c3c3d4aacc91f6597f310d
+  - 52eb9df5db46521439908db3a29a1bbb
+  - 2c5177b11d81d824dbb064f9ac8527da
+  - b7716510a1f36934c87976f3a81dbf3d
+  - c88d16e5272a4e241b0ef0ac2e53b73d
+  - de700ef3f37a49b58a57ae3addf01ad9
+  - fd7c55dab0fce234b8c25f6ffca523c1
   codecChannels:
     Value: []
     HasValue: 0
@@ -536,8 +536,8 @@ MonoBehaviour:
   switchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: 
-  sourceBankPath: 
+  sourceProjectPath: hidedaudio/hidedaudio.fspro
+  sourceBankPath: hidedaudio/Build
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
@@ -571,22 +571,22 @@ MonoBehaviour:
   EnableErrorCallback: 0
   SharedLibraryUpdateStage: 0
   SharedLibraryTimeSinceStart: 0
-  CurrentVersion: 131625
-  HideSetupWizard: 0
+  CurrentVersion: 131848
+  HideSetupWizard: 1
   LastEventReferenceScanVersion: 131625
   Platforms:
-  - {fileID: 7784876001556001670}
-  - {fileID: 6679059120403050477}
-  - {fileID: -9193638470923912129}
-  - {fileID: 193739903378886379}
-  - {fileID: -1320394251403205633}
-  - {fileID: -8856275648338189870}
-  - {fileID: 2910466396275627108}
-  - {fileID: -7349240260076264261}
-  - {fileID: -1992878893208036829}
-  - {fileID: -5634552621934693549}
-  - {fileID: -3781587916377886707}
   - {fileID: 3873666672046534741}
+  - {fileID: -3781587916377886707}
+  - {fileID: -5634552621934693549}
+  - {fileID: -1992878893208036829}
+  - {fileID: -7349240260076264261}
+  - {fileID: 2910466396275627108}
+  - {fileID: -8856275648338189870}
+  - {fileID: -1320394251403205633}
+  - {fileID: 193739903378886379}
+  - {fileID: -9193638470923912129}
+  - {fileID: 6679059120403050477}
+  - {fileID: 7784876001556001670}
   MigratedPlatforms: 0500000000000000060000000a0000000800000009000000120000000c000000150000000b0000000200000001000000
 --- !u!114 &193739903378886379
 MonoBehaviour:
