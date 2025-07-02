@@ -11,6 +11,9 @@ public class FMODEvents : MonoBehaviour
     [field: SerializeField] public EventReference BallHover { get; private set; }
     [field: Header("BallClick")]
     [field: SerializeField] public EventReference BallClick { get; private set; }
+    [field: Header("PuzzleSlide")]
+    [field: SerializeField] public EventReference PuzzleSlide { get; private set; }
+
 
     public static FMODEvents instance { get; private set; }
 

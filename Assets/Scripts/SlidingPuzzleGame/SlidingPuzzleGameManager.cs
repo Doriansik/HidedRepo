@@ -52,6 +52,7 @@ public class SlidingPuzzleGameManager : MonoBehaviour
                         if (SwapIfValid(i, +size, size)) { break; }
                         if (SwapIfValid(i, -1, 0)) { break; }
                         if (SwapIfValid(i, +1, size - 1)) { break; }
+                        
                     }
                 }
             }
@@ -135,6 +136,7 @@ public class SlidingPuzzleGameManager : MonoBehaviour
             (pieces[i], pieces[i + offset]) = (pieces[i + offset], pieces[i]);
             (pieces[i].localPosition, pieces[i + offset].localPosition) = ((pieces[i + offset].localPosition, pieces[i].localPosition));
             emptyLocation = i;
+            if (gameStarted == true) { AudioManager.instance.PlayOneShot(FMODEvents.instance.PuzzleSlide, this.transform.position); }
             return true;
         }
         return false;
