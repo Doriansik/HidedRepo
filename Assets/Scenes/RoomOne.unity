@@ -7189,6 +7189,34 @@ MonoBehaviour:
       Data3: 1870786470
       Data4: -1228403173
     Path: event:/Puzzle_slide
+  <ColorPuzzle1>k__BackingField:
+    Guid:
+      Data1: -873271217
+      Data2: 1248915511
+      Data3: 897636794
+      Data4: -1607264335
+    Path: event:/Color_puzzle1
+  <ColorPuzzle2>k__BackingField:
+    Guid:
+      Data1: 1278572694
+      Data2: 1322914752
+      Data3: 58479788
+      Data4: 15528884
+    Path: event:/Color_puzzle2
+  <ColorPuzzle3>k__BackingField:
+    Guid:
+      Data1: -1211917161
+      Data2: 1261613454
+      Data3: -168525674
+      Data4: 1494446643
+    Path: event:/Color_puzzle3
+  <ColorPuzzle4>k__BackingField:
+    Guid:
+      Data1: -1127520231
+      Data2: 1241795292
+      Data3: 1470821799
+      Data4: -98457792
+    Path: event:/Color_puzzle4
 --- !u!1 &1532581303
 GameObject:
   m_ObjectHideFlags: 0
