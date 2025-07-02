@@ -177,6 +177,20 @@ MonoBehaviour:
       Data3: 543886213
       Data4: -398080338
     Path: event:/Footsteps
+  <BallHover>k__BackingField:
+    Guid:
+      Data1: 634447925
+      Data2: 1299397591
+      Data3: 1076755111
+      Data4: 1567996053
+    Path: event:/Ball_hover
+  <BallClick>k__BackingField:
+    Guid:
+      Data1: 1945485102
+      Data2: 1184861924
+      Data3: -1288674926
+      Data4: -1087188380
+    Path: event:/Ball_pop
 --- !u!1 &402563026
 GameObject:
   m_ObjectHideFlags: 0
