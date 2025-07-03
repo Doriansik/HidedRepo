@@ -41,4 +41,8 @@ public class PlayerMovement : MonoBehaviour
         }
         
     }
+    public void StopFeetsiez()
+    {
+        zm.StopFootsteps();
+    }
 }

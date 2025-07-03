@@ -41,7 +41,7 @@ public class FruitNinjaManager : MonoBehaviour
     public void NewGame()
     {
         CameraManager.Instance.CameraManage(2);
-
+        playerMovement.StopFeetsiez();
         scoreTextObject.SetActive(true);
         playerMovement.enabled = false;
         mouseLook.enabled = false;
@@ -86,7 +86,10 @@ public class FruitNinjaManager : MonoBehaviour
 
     private IEnumerator ExplodeSequence()
     {
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.BombA, this.transform.position);
+
         yield return new WaitForSecondsRealtime(1f);
+        
         ClearScene();
         NewGame();
     }

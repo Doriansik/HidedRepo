@@ -21,6 +21,10 @@ public class FMODEvents : MonoBehaviour
     [field: SerializeField] public EventReference ColorPuzzle3 { get; private set; }
     [field: Header("ColorPuzzle4")]
     [field: SerializeField] public EventReference ColorPuzzle4 { get; private set; }
+    [field: Header("Squish")]
+    [field: SerializeField] public EventReference Squish { get; private set; }
+    [field: Header("BombA")]
+    [field: SerializeField] public EventReference BombA { get; private set; }
 
 
     public static FMODEvents instance { get; private set; }

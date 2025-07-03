@@ -4877,6 +4877,7 @@ MonoBehaviour:
   playerT: {fileID: 1013930563}
   moveSpeed: 6
   zm: {fileID: 2132223120}
+  playerCam: {fileID: 330585543}
 --- !u!114 &1013930565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7217,6 +7218,20 @@ MonoBehaviour:
       Data3: 1470821799
       Data4: -98457792
     Path: event:/Color_puzzle4
+  <Squish>k__BackingField:
+    Guid:
+      Data1: 2030984783
+      Data2: 1326190555
+      Data3: -1763098705
+      Data4: 1158591579
+    Path: event:/squish
+  <BombA>k__BackingField:
+    Guid:
+      Data1: -1610900833
+      Data2: 1088993675
+      Data3: 935488138
+      Data4: 121470505
+    Path: event:/BombA
 --- !u!1 &1532581303
 GameObject:
   m_ObjectHideFlags: 0
@@ -9667,8 +9682,30 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1448241121255394343, guid: 091714ce1cff9384da1508c1646b3518, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4040790512973526}
   m_SourcePrefab: {fileID: 100100000, guid: 091714ce1cff9384da1508c1646b3518, type: 3}
+--- !u!1 &4040790512973522 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1448241121255394343, guid: 091714ce1cff9384da1508c1646b3518, type: 3}
+  m_PrefabInstance: {fileID: 4040790512973521}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4040790512973526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4040790512973522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nonRigidbodyVelocity: 0
+  attenuationObject: {fileID: 4040790512973522}
 --- !u!1001 &657300863954651122
 PrefabInstance:
   m_ObjectHideFlags: 0

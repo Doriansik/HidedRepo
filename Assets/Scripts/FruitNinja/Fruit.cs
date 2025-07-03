@@ -28,7 +28,7 @@ public class Fruit : MonoBehaviour
 
         fruitCollider.enabled = false;
         juiceParticleEffect.Play();
-
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.Squish, this.transform.position);
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         sliced.transform.rotation = Quaternion.Euler(0f, 0f, angle);
 

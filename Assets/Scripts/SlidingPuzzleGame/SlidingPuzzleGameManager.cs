@@ -62,6 +62,7 @@ public class SlidingPuzzleGameManager : MonoBehaviour
     public void ChangeCameraToPuzzle()
     {
         CameraManager.Instance.CameraManage(1);
+        playerMovement.StopFeetsiez();
         StartPuzzlingSlideGame();
     }
 

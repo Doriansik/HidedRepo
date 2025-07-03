@@ -26,6 +26,7 @@ public class SimonGameManager : MonoBehaviour
 
     public void StartSimonSaysGame()
     {
+        playerMovement.StopFeetsiez();
         CrosshairManager.Instance.HideCrosshair();
         SimonGameUIManager.Instance.ShowGameplayPanel();
         blockCursor.ShowCursor();
