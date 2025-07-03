@@ -947,7 +947,7 @@ MonoBehaviour:
     m_FarClip: 10000
     m_DynamicClip: 1
     m_OcclusionCulling: 0
-  m_LastSceneViewRotation: {x: -0.0014999657, y: -0.016804915, z: 0.000024707584, w: -0.9998596}
+  m_LastSceneViewRotation: {x: 0.12113362, y: -0.033339452, z: -0.004067765, w: -0.9920727}
   m_LastSceneViewOrtho: 0
   m_Viewpoint:
     m_SceneView: {fileID: 9}
@@ -1213,7 +1213,7 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 904b0100
     m_LastClickedInstanceID: 84880
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c6230000a6bd000010c800005af800007cbe0000
+    m_ExpandedInstanceIDs: c6230000a6bd000010c800005af80000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
