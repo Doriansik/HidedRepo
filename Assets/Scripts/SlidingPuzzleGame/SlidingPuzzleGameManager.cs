@@ -16,6 +16,8 @@ public class SlidingPuzzleGameManager : MonoBehaviour
     [SerializeField] private Camera puzzleCamera;
     [SerializeField] private GameObject codeTextSlidingPuzzle;
     [SerializeField] private GameObject exitSlidingPuzzleButton;
+    [SerializeField] private GameObject completeSlidingPuzzleButton;
+    [SerializeField] private GameObject slidingPuzzleTrigger;
 
     private List<Transform> pieces;
     private int emptyLocation;
@@ -162,6 +164,7 @@ public class SlidingPuzzleGameManager : MonoBehaviour
         mouseLook.enabled = true;
         blockCursor.HideCursor();
         codeTextSlidingPuzzle.SetActive(true);
+        slidingPuzzleTrigger.SetActive(false);
 
         return true;
     }
@@ -206,8 +209,24 @@ public class SlidingPuzzleGameManager : MonoBehaviour
     {
         ChangeCameraToGameplay();
         exitSlidingPuzzleButton.SetActive(false);
+        completeSlidingPuzzleButton.SetActive(false);
+        slidingPuzzleTrigger.SetActive(false);
         playerMovement.enabled = true;
         mouseLook.enabled = true;
         blockCursor.HideCursor();
+    }
+
+    public void OnCompleteGame()
+    {
+        gameStarted = false;
+        ChangeCameraToGameplay();
+
+        exitSlidingPuzzleButton.SetActive(false);
+        completeSlidingPuzzleButton.SetActive(false);
+        slidingPuzzleTrigger.SetActive(false);
+        playerMovement.enabled = true;
+        mouseLook.enabled = true;
+        blockCursor.HideCursor();
+        codeTextSlidingPuzzle.SetActive(true);
     }
 }
