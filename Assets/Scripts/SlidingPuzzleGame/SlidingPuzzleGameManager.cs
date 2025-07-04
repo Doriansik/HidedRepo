@@ -30,12 +30,14 @@ public class SlidingPuzzleGameManager : MonoBehaviour
 
     void Update()
     {
-        if (pieces == null || pieces.Count == 0) return;
+        if (pieces == null || pieces.Count == 0)
+         return;
 
         if (!isShuffling && CheckCompletion())
         {
             isShuffling = true;
             StartCoroutine(WaitShuffle(0.5f));
+            gameStarted = false;
         }
 
         if (Input.GetMouseButtonDown(0))

@@ -4877,7 +4877,6 @@ MonoBehaviour:
   playerT: {fileID: 1013930563}
   moveSpeed: 6
   zm: {fileID: 2132223120}
-  playerCam: {fileID: 330585543}
 --- !u!114 &1013930565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7232,6 +7231,13 @@ MonoBehaviour:
       Data3: 935488138
       Data4: 121470505
     Path: event:/BombA
+  <OST>k__BackingField:
+    Guid:
+      Data1: 778589159
+      Data2: 1095375674
+      Data3: 1410676410
+      Data4: 1916596881
+    Path: event:/Musicen
 --- !u!1 &1532581303
 GameObject:
   m_ObjectHideFlags: 0

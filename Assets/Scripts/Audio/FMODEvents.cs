@@ -25,6 +25,8 @@ public class FMODEvents : MonoBehaviour
     [field: SerializeField] public EventReference Squish { get; private set; }
     [field: Header("BombA")]
     [field: SerializeField] public EventReference BombA { get; private set; }
+    [field: Header("OST")]
+    [field: SerializeField] public EventReference OST { get; private set; }
 
 
     public static FMODEvents instance { get; private set; }
