@@ -1,3 +1,4 @@
+using System.Xml.Serialization;
 using UnityEngine;
 
 public class Fruit : MonoBehaviour
@@ -17,7 +18,10 @@ public class Fruit : MonoBehaviour
         fruitCollider = GetComponent<Collider>();
         juiceParticleEffect= GetComponentInChildren<ParticleSystem>();
     }
-
+    private void Update()
+    {
+        transform.position = new Vector3(transform.position.x, transform.position.y, 215.0f);
+    }
     private void Slice(Vector3 direction, Vector3 position, float force)
     {
         FindFirstObjectByType<FruitNinjaManager>().IncreaseScore(points);

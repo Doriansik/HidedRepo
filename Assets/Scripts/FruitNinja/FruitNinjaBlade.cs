@@ -73,6 +73,7 @@ public class FruitNinjaBlade : MonoBehaviour
 
         float velocity = direction.magnitude / Time.deltaTime;
         bladeCollider.enabled = velocity > minSliceVelocity;
+        newPosition.z = 215f;
 
         transform.position = newPosition;
     }
