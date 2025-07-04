@@ -177,7 +177,7 @@ MonoBehaviour:
   Path: hidedaudio/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638871930551087775
+  lastModified: 638872138172747455
   FileSizes:
   - Name: Desktop
     Value: 1378
@@ -245,7 +245,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: 215057905530415574}
   cacheVersion: 131848
-  cacheTime: 638871930551444794
+  cacheTime: 638872138172921556
   SerializableEventsDict:
   - key: event:/Footsteps
     index: 0
@@ -286,7 +286,7 @@ MonoBehaviour:
   Path: hidedaudio/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638871930551108844
+  lastModified: 638872138172747455
   FileSizes:
   - Name: Desktop
     Value: 1388
@@ -306,7 +306,7 @@ MonoBehaviour:
   Path: hidedaudio/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 638871930551380899
+  lastModified: 638872138172891806
   FileSizes:
   - Name: Desktop
     Value: 2526176
@@ -380,7 +380,7 @@ MonoBehaviour:
   Path: hidedaudio/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638871930551444794
+  lastModified: 638872138172921556
   FileSizes:
   - Name: Desktop
     Value: 382720
