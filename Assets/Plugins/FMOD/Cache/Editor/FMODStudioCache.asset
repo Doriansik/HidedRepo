@@ -81,6 +81,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-6013851194963575309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Musicen
+  m_EditorClassIdentifier: 
+  Path: event:/Musicen
+  Guid:
+    Data1: 778589159
+    Data2: 1095375674
+    Data3: 1410676410
+    Data4: 1916596881
+  Banks:
+  - {fileID: 431901574850772416}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 250223
 --- !u!114 &-3551808359202048210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,11 +177,38 @@ MonoBehaviour:
   Path: hidedaudio/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638871736556602934
+  lastModified: 638871921973569405
   FileSizes:
   - Name: Desktop
     Value: 1378
   Exists: 1
+--- !u!114 &-511768204470392162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/BombA
+  m_EditorClassIdentifier: 
+  Path: event:/BombA
+  Guid:
+    Data1: -1610900833
+    Data2: 1088993675
+    Data3: 935488138
+    Data4: 121470505
+  Banks:
+  - {fileID: 4350662296176531300}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1370
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,13 +236,16 @@ MonoBehaviour:
   - {fileID: 6949230438417784819}
   - {fileID: -6198337518814119447}
   - {fileID: 8862291100831574699}
+  - {fileID: -6013851194963575309}
+  - {fileID: 5503799740333093513}
+  - {fileID: -511768204470392162}
   EditorParameters: []
   MasterBanks:
   - {fileID: -1935032827590076638}
   StringsBanks:
   - {fileID: 215057905530415574}
   cacheVersion: 131848
-  cacheTime: 638871736906731182
+  cacheTime: 638871921973833285
   SerializableEventsDict:
   - key: event:/Footsteps
     index: 0
@@ -208,6 +265,12 @@ MonoBehaviour:
     index: 7
   - key: event:/Puzzle_slide
     index: 8
+  - key: event:/Musicen
+    index: 9
+  - key: event:/squish
+    index: 10
+  - key: event:/BombA
+    index: 11
 --- !u!114 &215057905530415574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,10 +286,10 @@ MonoBehaviour:
   Path: hidedaudio/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638871736906691288
+  lastModified: 638871921973579593
   FileSizes:
   - Name: Desktop
-    Value: 1266
+    Value: 1388
   Exists: 1
 --- !u!114 &431901574850772416
 MonoBehaviour:
@@ -243,10 +306,10 @@ MonoBehaviour:
   Path: hidedaudio/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 638871736556622874
+  lastModified: 638871921973792140
   FileSizes:
   - Name: Desktop
-    Value: 506
+    Value: 2526176
   Exists: 1
 --- !u!114 &786419407365912971
 MonoBehaviour:
@@ -317,11 +380,38 @@ MonoBehaviour:
   Path: hidedaudio/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638871736906731182
+  lastModified: 638871921973833285
   FileSizes:
   - Name: Desktop
-    Value: 316032
+    Value: 382720
   Exists: 1
+--- !u!114 &5503799740333093513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/squish
+  m_EditorClassIdentifier: 
+  Path: event:/squish
+  Guid:
+    Data1: 2030984783
+    Data2: 1326190555
+    Data3: -1763098705
+    Data4: 1158591579
+  Banks:
+  - {fileID: 4350662296176531300}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1000
 --- !u!114 &6949230438417784819
 MonoBehaviour:
   m_ObjectHideFlags: 0

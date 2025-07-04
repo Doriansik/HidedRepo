@@ -24,7 +24,7 @@ public class SimonGameUIManager : MonoBehaviour
     public void UpdateRound(int round)
     {
         if (roundText != null)
-            roundText.text = "Runda: " + round;
+            roundText.text = "Round: " + round;
     }
 
     public void ShowGameplayPanel()
