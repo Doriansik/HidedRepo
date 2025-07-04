@@ -15,6 +15,7 @@ public class SlidingPuzzleGameManager : MonoBehaviour
     [SerializeField] private Transform piecePrefab;
     [SerializeField] private Camera puzzleCamera;
     [SerializeField] private GameObject codeTextSlidingPuzzle;
+    [SerializeField] private GameObject exitSlidingPuzzleButton;
 
     private List<Transform> pieces;
     private int emptyLocation;
@@ -200,4 +201,13 @@ public class SlidingPuzzleGameManager : MonoBehaviour
         }
     }
 
+
+    public void OnExitButton()
+    {
+        ChangeCameraToGameplay();
+        exitSlidingPuzzleButton.SetActive(false);
+        playerMovement.enabled = true;
+        mouseLook.enabled = true;
+        blockCursor.HideCursor();
+    }
 }

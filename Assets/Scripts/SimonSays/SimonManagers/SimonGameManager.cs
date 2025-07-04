@@ -10,6 +10,7 @@ public class SimonGameManager : MonoBehaviour
     [SerializeField] private MouseLook mouseLook;
     [SerializeField] private BlockCursor blockCursor;
     [SerializeField] private GameObject codeTextSimon;
+    [SerializeField] private GameObject startSimonSays;
 
     private ISequenceProvider sequenceProvider;
     private Coroutine gameLoopCoroutine;
@@ -90,6 +91,7 @@ public class SimonGameManager : MonoBehaviour
         playerMovement.enabled = true;
         mouseLook.enabled = true;
         blockCursor.HideCursor();
+        startSimonSays.SetActive(true);
         SimonGameUIManager.Instance.HideEndPanel();
         SimonGameUIManager.Instance.HideGameplayPanel();
         SimonGameUIManager.Instance.HideWinPanel();
